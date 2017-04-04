@@ -13,14 +13,29 @@ feature "displays views" do
     expect(page).to have_link('Add a review')
   end
 
-feature "add a review" do
-  scenario "user adds a review using a form" do
-    visit '/reviews'
-    click_link 'Add a review'
-    fill_in 'review_rating', with: '5'
-    fill_in 'review_comment', with: 'very tasty'
-    click_button 'Submit'
-    expect(page).to have_content('very tasty')
+  feature "add a review" do
+    scenario "user adds a review using a form" do
+      visit '/reviews'
+      click_link 'Add a review'
+      fill_in 'review_rating', with: '5'
+      fill_in 'review_comment', with: 'very tasty'
+      click_button 'Submit'
+      expect(page).to have_content('very tasty')
+    end
   end
-end
+
+  # feature 'reviewing' do
+  #   before { Restaurant.create name: 'KFC' }
+  #
+  #   scenario 'allows users to leave a review using a form' do
+  #      visit '/restaurants'
+  #      click_link 'Review KFC'
+  #      fill_in "Thoughts", with: "so so"
+  #      select '3', from: 'Rating'
+  #      click_button 'Leave Review'
+  # 
+  #      expect(current_path).to eq '/restaurants'
+  #      expect(page).to have_content('so so')
+  #   end
+  # end
 end
