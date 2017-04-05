@@ -1,7 +1,7 @@
 <% if @reviews.any? %>
   <% @reviews.each do |review| %>
     <h2><%= review.rating %></h2>
-    <h2><%= review.comment %></h2>
+    <h2><%= review.comments %></h2>
   <% end %>
 <% else %>
   <h1>Reviews placeholder</h1>

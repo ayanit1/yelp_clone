@@ -1,4 +1,8 @@
 <p><%= @restaurant.name %></p>
 <p><%= @restaurant.description %></p>
+<% @reviews.each do |r| %>
+<p><%= r.rating %>
+  <%= r.comment%></p>
+  <% end %>
 
 <a href="/restaurants/<%= @restaurant.id %>/reviews/new">Add a review</a>
