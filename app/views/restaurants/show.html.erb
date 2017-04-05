@@ -1,5 +1,9 @@
 <p><%= @restaurant.name %></p>
 <p><%= @restaurant.description %></p>
+<% @reviews.each do |r| %>
+<p><%= r.rating %>
+  <%= r.comment%></p>
+  <% end %>
 
 
 
