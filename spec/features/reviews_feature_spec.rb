@@ -1,23 +1,15 @@
 require 'rails_helper'
 
-feature "displays views" do
 
-  # scenario "can show reviews from database" do
-  #   Restaurant.create(name: 'Tayyabs', description: 'Has food.')
-  #   visit '/restaurants'
-  #   click_link 'Tayyabs'
-  #
-  #   expect(page).to have_content('Very good.')
-  # end
-
+feature "displays reviews" do
   scenario "has a button to create a review" do
     Restaurant.create(name: 'Tayyabs', description: 'Has food.')
     visit '/restaurants'
     click_link 'Tayyabs'
     expect(page).to have_link('Add a review')
   end
+end
 
-  feature "add a review" do
     scenario "user adds a review using a form" do
       Restaurant.create(name: 'Tayyabs', description: 'Has food.')
       visit '/restaurants'
@@ -29,20 +21,4 @@ feature "displays views" do
       expect(current_path).to eq('/restaurants/1')
       expect(page).to have_content('very tasty' && '5')
     end
-  end
-
-  # feature 'reviewing' do
-  #   before { Restaurant.create name: 'KFC' }
-  #
-  #   scenario 'allows users to leave a review using a form' do
-  #      visit '/restaurants'
-  #      click_link 'Review KFC'
-  #      fill_in "Thoughts", with: "so so"
-  #      select '3', from: 'Rating'
-  #      click_button 'Leave Review'
-  #
-  #      expect(current_path).to eq '/restaurants'
-  #      expect(page).to have_content('so so')
-  #   end
-  # end
 end

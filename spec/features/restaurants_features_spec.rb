@@ -74,4 +74,21 @@ feature 'restaurants' do
       expect(page).to have_content 'Restaurant deleted successfully'
     end
   end
+
+  context 'viewing restaurant rating' do
+
+  before { Restaurant.create name: 'KFC', description: 'Deep fried goodness' }
+
+    scenario 'shows the average rating on the restaurant landing page' do
+      visit '/restaurants'
+      click_link 'KFC'
+      click_link 'Add a review'
+      fill_in 'review_rating', with: '4'
+      click_button 'Submit'
+      click_link 'Add a review'
+      fill_in 'review_rating', with: '5'
+      click_button 'Submit'
+      expect(page).to have_content '4.5'
+    end
+  end
 end

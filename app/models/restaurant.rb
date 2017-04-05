@@ -1,3 +1,11 @@
 class Restaurant < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
+
+
+  def calculate_rating
+    ratings = self.reviews.map { |review|
+      review.rating
+    }
+    ratings.reduce(:+).to_f/ratings.length
+  end
 end
