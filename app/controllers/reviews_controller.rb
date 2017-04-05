@@ -11,11 +11,6 @@ class ReviewsController < ApplicationController
     redirect_to "/restaurants/#{@restaurant.id}"
   end
 
-  def index
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @reviews = Review.all
-  end
-
 private
 
   def review_params
