@@ -8,13 +8,7 @@ class ReviewsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @restaurant.reviews.create(review_params)
-    redirect_to "/restaurants/#{@restaurant.id}/reviews"
-  end
-
-  def index
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @reviews = Review.all
-    @avg_rating = @restaurant.calculate_rating
+    redirect_to "/restaurants/#{@restaurant.id}"
   end
 
 private

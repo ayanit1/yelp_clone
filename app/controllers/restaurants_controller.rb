@@ -14,8 +14,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    # avg_rating should go here
-    
+    @avg_rating = @restaurant.calculate_rating
+    @reviews = Review.where(restaurant_id: params[:id])
   end
 
   def edit

@@ -1,5 +1,10 @@
 <p><%= @restaurant.name %></p>
 <p><%= @restaurant.description %></p>
+<h1>Average rating: <%= @avg_rating %></h1>
+<% @reviews.each do |r| %>
+<p><%= r.rating %>
+  <%= r.comment%></p>
+  <% end %>
 
 
 
