@@ -14,6 +14,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    # avg_rating should go here
+    
   end
 
   def edit

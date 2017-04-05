@@ -1,4 +1,5 @@
 <% if @reviews.any? %>
+  <h1>Average rating: <%= @avg_rating %></h1> 
   <% @reviews.each do |review| %>
     <h2><%= review.rating %></h2>
     <h2><%= review.comment %></h2>

@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reviews = Review.all
+    @avg_rating = @restaurant.calculate_rating
   end
 
 private
