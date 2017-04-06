@@ -2,6 +2,11 @@ require 'rails_helper'
 
 
 feature "displays reviews" do
+
+  before :each do
+    sign_in
+  end
+
   scenario "has a button to create a review" do
     Restaurant.create(name: 'Tayyabs', description: 'Has food.')
     visit '/restaurants'
@@ -19,5 +24,7 @@ feature "displays reviews" do
     click_button 'Submit'
     expect(current_path).to eq('/restaurants/1')
     expect(page).to have_content('very tasty' && '5')
+    expect(page).to have_content("test@example.com")
+
   end
 end
