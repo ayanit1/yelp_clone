@@ -6,4 +6,9 @@ class Review < ActiveRecord::Base
   validates :rating, presence: true
   # validates :user_id, presence: true
 
+  def get_user_email
+    user = User.find(self.user_id)
+    user.email
+  end
+
 end
