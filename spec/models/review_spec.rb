@@ -3,6 +3,11 @@ require 'rails_helper'
 #rather than calling create for the testing database test, just call save
 
 describe Review do
+
+  it {should belong_to(:user)}
+  it {should belong_to(:restaurant)}
+  it {should validate_presence_of(:rating)}
+
   let(:review){described_class.new}
 
   it "responds to :id" do
@@ -18,7 +23,6 @@ describe Review do
   end
 
   it "tests database" do
-  expect{review.save(rating: 5, comment: "Very good")}.to change(Review, :count)
+  expect{Review.create(rating: 5, comment: "Very good")}.to change(Review, :count)
   end
-
 end

@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
   <!-- FOR WHEN USER SIGNED IN
     <div>
       <a href='/restaurants'>Rafa-Yelp</a>
@@ -32,6 +33,15 @@
     <input id='button' type='submit' value='Sign Out'</input>
   </form>
   </div> -->
+=======
+
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign in", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path %>
+<% end %>
+>>>>>>> f917c83b366ffd316fa131320489e55e238fe9f7
 
 <%= notice %>
 <%= yield %>
