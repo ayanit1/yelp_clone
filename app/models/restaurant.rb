@@ -2,6 +2,8 @@ class Restaurant < ActiveRecord::Base
   attr_reader :ratings
 
   has_many :reviews, dependent: :destroy
+  validates :name, presence: { message: "must be given"}
+  # message doesn't show
 
   def calculate_rating
     get_ratings
