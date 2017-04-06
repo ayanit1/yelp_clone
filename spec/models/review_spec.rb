@@ -22,7 +22,20 @@ describe Review do
     expect(review).to respond_to(:comment)
   end
 
+  it "responds to :user_id" do
+    expect(review).to respond_to(:user_id)
+  end
+
   it "tests database" do
-  expect{Review.create(rating: 5, comment: "Very good")}.to change(Review, :count)
+    User.create(email: "test@testing.com", password: "password")
+    expect{Review.create(rating: 5, comment: "Very good", user_id: 1)}.to change(Review, :count)
+  end
+
+  describe "get an email" do
+    it "gives us the corresponding user's email" do
+      User.create(email: "test@testing.com", password: "password")
+      review = Review.create(rating: 5, comment: "Very good", user_id: 1)
+      expect(review.get_user_email).to eq("test@testing.com")
+    end
   end
 end

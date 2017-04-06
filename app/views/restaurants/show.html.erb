@@ -4,6 +4,7 @@
 <% @reviews.each do |r| %>
 <p><%= r.rating %>
   <%= r.comment%></p>
+  <%= r.get_user_email %>
   <% end %>
 
 
