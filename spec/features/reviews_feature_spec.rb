@@ -14,6 +14,14 @@ feature "displays reviews" do
     expect(page).to have_link('Add a review')
   end
 
+  scenario "user cannot review a restaurant they've added" do
+    Restaurant.create(name: 'Tayyabs', description: 'Has food.')
+    visit '/restaurants'
+    click_link 'Tayyabs'
+    click_link 'Add a review'
+    expect(page).to have_content("Review error: Unable to review a restaurant that you've added")
+  end
+
   scenario "user adds a review using a form" do
     Restaurant.create(name: 'Tayyabs', description: 'Has food.')
     visit '/restaurants'
@@ -25,6 +33,6 @@ feature "displays reviews" do
     expect(current_path).to eq('/restaurants/1')
     expect(page).to have_content('very tasty' && '5')
     expect(page).to have_content("test@example.com")
-
   end
+
 end
