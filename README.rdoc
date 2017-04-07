@@ -26,3 +26,59 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+User Stories
+============
+```
+As a user,
+So I can read about a restaurant
+I want to see restaurant reviews
+
+As a visitor,
+So that I can review a restaurant
+I want to be able to create a restaurant listing (name, description)
+
+As a visitor,
+So that I can take down a bad entry
+I want to be able to delete a restaurant entry
+
+As a visitor,
+So that I can fix an incorrect entry
+I want to be able to edit a restaurant entry
+
+As a user,
+So I can see how good a restaurant is
+I want to see average restaurant scores
+
+As a restaurant reviewer,
+So that I can review a restaurant
+I want to leave a score out of 5 and a comment
+
+As a site owner
+So that all restaurant entries are valid
+I want to make sure they're always made with at least a name and description
+
+As a user
+So that I can leave a review
+I want to be able to make an account
+
+As a user
+So that I can use my account
+I want to be able to sign in
+
+As a user
+For privacy
+I want to be able to sign out of my account
+
+As a user
+So that I can find buttons easier
+I want to have a nav-bar
+
+As a user
+So that I know who's posted what
+I want user email address displayed with review
+
+As a site owner
+To keep reviews unbiased
+I want a user to not be able to review their own restaurant
+```
